@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo/dirctory/firebase/firebase_Function.dart';
 import 'package:todo/dirctory/firebase/taskModel.dart';
-import 'package:todo/dirctory/tabs/editTab.dart';
 
 class TaskItem extends StatelessWidget {
   TaskModel taskModel;
@@ -33,11 +32,7 @@ class TaskItem extends StatelessWidget {
           ),
           SlidableAction(
             onPressed: (context) {
-              Navigator.pushNamed(context, EditTab.routename,
-                  arguments: TaskModel(
-                      title: taskModel.title,
-                      description: taskModel.description,
-                      date: taskModel.date,id: taskModel.id));
+
             },
             label: "Edit",
             backgroundColor: Colors.blue,

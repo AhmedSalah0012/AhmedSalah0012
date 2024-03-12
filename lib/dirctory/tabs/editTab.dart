@@ -19,7 +19,6 @@ class _EditTabState extends State<EditTab> {
     var args = ModalRoute.of(context)?.settings.arguments as TaskModel;
     var titleController = TextEditingController(text: args.title);
     var descriptionController = TextEditingController(text: args.description);
-    choosenDate = DateTime.fromMillisecondsSinceEpoch(args.date);
 
     return Scaffold(
       backgroundColor: Color(0xffdfecdb),
@@ -40,7 +39,7 @@ class _EditTabState extends State<EditTab> {
             color: Colors.blue,
           ),
           Container(
-              height: MediaQuery.of(context).size.height*.5,
+              height: MediaQuery.of(context).size.height*.6,
               padding: EdgeInsets.all(10),
               margin: EdgeInsets.all(25),
               decoration: BoxDecoration(
@@ -143,10 +142,11 @@ class _EditTabState extends State<EditTab> {
         context: context,
         confirmText: "Thanks",
         firstDate: choosenDate,
-        initialDate: choosenDate,
+        initialDate: DateTime.now(),
         lastDate: DateTime.now().add(Duration(days: 365)));
     setState(() {
       if (selectedDay != null) choosenDate = selectedDay;
+
     });
   }
 }
